@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+  <servlet>
+    <servlet-name>ArchiveServlet</servlet-name>
+    <servlet-class>io.github.garysheppardjr.box.archiver.ArchiveServlet</servlet-class>
+    <init-param>
+      <!-- The client ID for your registered Box app -->
+      <param-name>boxClientId</param-name>
+      <param-value>pZySco41DYiCqYKXmjjLS5vRvqzt53Bz</param-value>
+    </init-param>
+    <init-param>
+      <!-- The client secret for your registered Box app -->
+      <param-name>boxClientSecret</param-name>
+      <param-value>5i2w1QURHp5x0RZjje4cWQ6JKoA56Qdd</param-value>
+    </init-param>
+    <init-param>
+      <!-- The ID of the destination Box folder. If the URL is
+      https://acme.app.box.com/folder/12345678901, the ID is 12345678901. -->
+      <param-name>boxTargetFolderId</param-name>
+      <param-value>12345678901</param-value>
+    </init-param>
+    <init-param>
+      <!-- The directory whose files should be archived -->
+      <param-name>directoryToArchive</param-name>
+      <!--param-value>C:\Program Files\service\logs</param-value-->
+      <param-value>/usr/share/service/logs</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ArchiveServlet</servlet-name>
+    <url-pattern>/archive</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>
+      30
+    </session-timeout>
+  </session-config>
+</web-app>
